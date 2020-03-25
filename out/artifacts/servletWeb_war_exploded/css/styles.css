@@ -1,0 +1,17 @@
+.table1{
+    position: absolute;
+    height: 400px;
+    display: inline-block;
+}
+.rInner{
+    position: relative;
+    height: 400px;
+    display: inline-block;
+    left: 400px;
+}
+.tablefree{
+    position: relative;
+    height: 400px;
+    display: inline-block;
+    top: 300px;
+}
