@@ -69,12 +69,20 @@
                 </td>
             </tr>
         </table>
+        <strong>Ответ сервлета </strong>:
+        <span id="ajaxUserServletResponse"></span>
+
     </form>
 </div>
 <jsp:include page="secondpage.jsp" flush="true"/>
 
 <jsp:include page="thirdtable.jsp" flush="true"/>
 
+<jsp:include page="buttons.jsp" flush="true"/>
+
+<jsp:include page="textarea.jsp" flush="true"/>
+
+<script src ="js/main.js"></script>
 
 </body>
 </html>

@@ -2,16 +2,33 @@
     position: absolute;
     height: 400px;
     display: inline-block;
+
 }
 .rInner{
-    position: relative;
     height: 400px;
     display: inline-block;
     left: 400px;
+    position: absolute;
+
 }
 .tablefree{
-    position: relative;
     height: 400px;
     display: inline-block;
-    top: 300px;
+    position: absolute;
+    top: 350px;
+
+}
+.buttons{
+    height: 300px;
+    display: inline-block;
+    left: 850px;
+    position: absolute;
+}
+.textarea{
+    height: 200px;
+    width: 200px;
+    display: inline-block;
+    top: 350px;
+    left: 650px;
+    position: relative;
 }
