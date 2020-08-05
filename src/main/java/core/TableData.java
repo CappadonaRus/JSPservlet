@@ -40,10 +40,7 @@ public class TableData {
             if (pair.getKey().equals(value)) {
                 return pair.getValue();
             }
-
-
         }
-
         return null;
     }
 

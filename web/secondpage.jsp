@@ -1,11 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<head>
-    <title>web.webServlet</title>
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/styles.css" media="all">
-</head>
-<body>
 <div class="rInner">
     <form name="form2">
         <select id="array" name="headers">
@@ -71,5 +66,4 @@
         </table>
     </form>
 </div>
-</body>
 </html>

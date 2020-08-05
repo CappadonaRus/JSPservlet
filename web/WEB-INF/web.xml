@@ -8,14 +8,14 @@
         <servlet-name>mainServlet</servlet-name>
         <servlet-class>web.webServlet</servlet-class>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>mainServlet</servlet-name>
         <url-pattern>/main</url-pattern>
     </servlet-mapping>
+
     <servlet>
         <servlet-name>jQueryServlet</servlet-name>
-        <servlet-class>web.postServlet</servlet-class>
+        <servlet-class>web.jQueryServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>jQueryServlet</servlet-name>
