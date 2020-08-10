@@ -8,14 +8,13 @@
 <body>
 <div class="table1">
     <form name="form1" action="${pageContext.request.contextPath}/main" method="post">
-        <form name = "firstSelectTable" method="post">
-        <select id="array" name="headers">
-            <c:forEach items="${headers}" var="headers">
-                <option>${headers}</option>
-            </c:forEach>
-        </select>
-            <input type="submit" value="Submit">
-        </form>
+        <form name="firstSelectTable">
+            <select id="array" name="firstTableHeaders">
+                <c:forEach items="${firstTableHeaders}" var="firstTableHeaders">
+                    <option>${firstTableHeaders}</option>
+                </c:forEach>
+            </select>
+            </form>
         <table>
             <tr>
                 <td>
@@ -60,55 +59,41 @@
                 </td>
 
                 <td>
-                    <table id="firstTable">
-<%--                        <script>--%>
-<%--                        function loadeddata (data) {--%>
-<%--                        $.each(data, function (key, value) {--%>
-
-<%--                            for(var i = 0; i < data.length, i++){--%>
-
-<%--                            }--%>
-<%--                        // действия, которые будут выполняться для каждого свойства объекта--%>
-<%--                        // key - текущее имя свойства массива--%>
-<%--                        // value - значение текущего свойства объекта--%>
-
-<%--                        // выведем имя свойства и его значение в консоль--%>
-<%--                        console.log('Свойство: ' + key + '; Значение: ' + value);--%>
-
-<%--                        });--%>
-<%--                        }--%>
-<%--                        </script>--%>
-
-
-<%--                        <c:forEach items="${dataArray}" var="dataArray">--%>
-<%--                            <tr>--%>
-<%--                                <td>${dataArray}</td>--%>
-<%--                            </tr>--%>
-<%--                        </c:forEach>--%>
-                    </table>
-
+                    <table id="firstTable"></table>
                 </td>
             </tr>
         </table>
-        <strong>Ответ сервлета </strong>:
-        <span id="ajaxUserServletResponse"></span>
-
     </form>
 </div>
+
 <div class="rInner">
     <form name="form2">
-        <select id="array2" name="headers">
-            <c:forEach items="${headers}" var="headers">
-                <option>${headers}</option>
+        <select id="array2" name="secondTableHeaders">
+            <c:forEach items="${secondTableHeaders}" var="secondTableHeaders">
+                <option>${secondTableHeaders}</option>
             </c:forEach>
         </select>
-        <input type="submit" value="Submit">
         <table>
             <tr>
                 <td>
                     <table>
                         <tr>
-                            <td>fio</td>
+                            <td>selfkey</td>
+                        </tr>
+                        <tr>
+                            <td>confirmKey</td>
+                        </tr>
+                        <tr>
+                            <td>login</td>
+                        </tr>
+                        <tr>
+                            <td>password</td>
+                        </tr>
+                        <tr>
+                            <td>fullName</td>
+                        </tr>
+                        <tr>
+                            <td>branch</td>
                         </tr>
                         <tr>
                             <td>lastName</td>
@@ -119,142 +104,90 @@
                         <tr>
                             <td>middleName</td>
                         </tr>
-                        <tr>
-                            <td>birthDate</td>
-                        </tr>
-                        <tr>
-                            <td>card</td>
-                        </tr>
-                        <tr>
-                            <td>sessionType</td>
-                        </tr>
-                        <tr>
-                            <td>document</td>
-                        </tr>
-                        <tr>
-                            <td>type</td>
-                        </tr>
-                        <tr>
-                            <td>series</td>
-                        </tr>
-                        <tr>
-                            <td>number</td>
-                        </tr>
-                        <tr>
-                            <td>seriesNumber</td>
-                        </tr>
                     </table>
                 </td>
 
                 <td>
-                    <table>
-                        <c:forEach items="${dataArray}" var="dataArray">
-                            <tr>
-                                <td>${dataArray}</td>
-                            </tr>
-                        </c:forEach>
-                    </table>
-
+                    <table id="secondTable"></table>
                 </td>
+
             </tr>
         </table>
     </form>
 </div>
 <div class="tablefree">
     <form name="form2">
-        <select id="array3" name="headers">
-            <c:forEach items="${headers}" var="headers">
-                <option>${headers}</option>
+        <select id="array3" name="thirdTableHeaders">
+            <c:forEach items="${thirdTableHeaders}" var="thirdTableHeaders">
+                <option>${thirdTableHeaders}</option>
             </c:forEach>
         </select>
-        <input type="submit" value="Submit">
-        <table>
-            <tr>
-                <td>
-                    <table>
-                        <tr>
-                            <td>fio</td>
-                        </tr>
-                        <tr>
-                            <td>lastName</td>
-                        </tr>
-                        <tr>
-                            <td>firstName</td>
-                        </tr>
-                        <tr>
-                            <td>middleName</td>
-                        </tr>
-                        <tr>
-                            <td>birthDate</td>
-                        </tr>
-                        <tr>
-                            <td>card</td>
-                        </tr>
-                        <tr>
-                            <td>sessionType</td>
-                        </tr>
-                        <tr>
-                            <td>document</td>
-                        </tr>
-                        <tr>
-                            <td>type</td>
-                        </tr>
-                        <tr>
-                            <td>series</td>
-                        </tr>
-                        <tr>
-                            <td>number</td>
-                        </tr>
-                        <tr>
-                            <td>seriesNumber</td>
-                        </tr>
-                    </table>
-                </td>
-
-                <td>
-                    <table>
-                        <c:forEach items="${dataArray}" var="dataArray">
-                            <tr>
-                                <td>${dataArray}</td>
-                            </tr>
-                        </c:forEach>
-                    </table>
-
-                </td>
-            </tr>
-        </table>
     </form>
+
+</div>
+<div class = "img">
+    <img style="height: 400px; width: 400px; " id="image" />
 </div>
 
 <div class="buttons">
     <form name="buttonsarea">
-        <p><b>Radio Buttons</b></p>
-        <p><input name="first" type="radio" value="first" checked> first</p>
-        <p><input name="second" type="radio" value="second"> second</p>
-        <p><input name="third" type="radio" value="third"> third</p>
-        <p><input name="four" type="radio" value="four"> four</p>
-        <p><input name="five" type="radio" value="five"> five</p>
-        <p><input type="submit" value="Выбрать"></p>
+        <p>
+        <div class="form_radio">
+            <input id="radio-1" type="radio" name="radio" value="1" required>
+            <label for="radio-1">Radio button 1</label>
+        </div>
+    </p>
+
+        <p>
+        <div class="form_radio">
+            <input id="radio-2" type="radio" name="radio" value="2">
+            <label for="radio-2">Radio button 2</label>
+        </div>
+        </p>
+        <p>
+        <div class="form_radio">
+            <input id="radio-3" type="radio" name="radio" value="3">
+            <label for="radio-3">Radio button 3</label>
+        </div>
+        </p>
+        <p>
+        <div class="form_radio">
+            <input id="radio-4" type="radio" name="radio" value="4" >
+            <label for="radio-4">Radio button 4</label>
+        </div>
+        </p>
+        <p>
+        <div class="form_radio">
+            <input id="radio-5" type="radio" name="radio" value="5" >
+            <label for="radio-5">Radio button 5</label>
+        </div>
+        </p>
 
     </form>
+
 </div>
 
 <div class="textarea">
-    <form>
+    <p>
         <p><b>Текстовое поле</b></p>
         <p><label>
-            <textarea rows="10" cols="45" name="text"></textarea>
+            <textarea id = "textArea" rows="10" cols="45" name="text"></textarea>
         </label></p>
-        <p><input type="submit" value="Отправить"></p>
+        </form>
+</div>
+<div class= "submitButton">
+    <form id = "submitAllForms" method="post">
+        <button> Submit button </button>
     </form>
 </div>
+
+
 
 <script
         src="https://code.jquery.com/jquery-3.5.1.js"
         integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
         crossorigin="anonymous">
 </script>
-<script src ="js/main.js"></script>
-
+<script src="js/main.js"></script>
 </body>
 </html>

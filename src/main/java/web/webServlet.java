@@ -2,10 +2,11 @@ package web;
 
 
 import core.TableData;
+import core.TablesPojo.SecondTableData;
+import core.TablesPojo.ThirdTableData;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,6 +19,8 @@ public class webServlet extends HttpServlet {
         super.init(config);
         try {
             TableData.getInstance().finData(getServletContext());
+            SecondTableData.getInstance().finData(getServletContext());
+            ThirdTableData.getInstance().finData((getServletContext()));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -27,17 +30,10 @@ public class webServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         req.setCharacterEncoding("UTF-8");
-        req.setAttribute("headers", TableData.getInstance().getHeaders());
+        req.setAttribute("firstTableHeaders", TableData.getInstance().getHeaders());
+        req.setAttribute("secondTableHeaders", SecondTableData.getInstance().getHeaders());
+        req.setAttribute("thirdTableHeaders", ThirdTableData.getInstance().getHeaders());
         req.getRequestDispatcher("mypage.jsp").forward(req, resp);
 
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-        req.setCharacterEncoding("UTF-8");
-        req.setAttribute("headers", TableData.getInstance().getHeaders());
-        req.setAttribute("dataArray", TableData.getInstance().getFinData(req.getParameter("headers")));
-        req.getRequestDispatcher("mypage.jsp").forward(req, resp);
     }
 }

@@ -1,11 +1,8 @@
-// var targetValue; // переменная, куда при изменении выбора списка уйдет его value
-
 
 $('#array').change(function () {
-    //Use $option (with the "$") to see that the variable is a jQuery object
+
     var option = $(this).find('option:selected');
     var text = option.text();//to get <option>Text</option> content
-    console.log(text)
     $.ajax({
         url: 'http://localhost:8080/servletWeb/data', // URL - сервлет
         type: 'POST', // тип запроса
@@ -14,85 +11,87 @@ $('#array').change(function () {
         },
         success: function (response) {
 
-            console.log(response)
-            $('#ajaxUserServletResponse').text(response);
+            var upgradedFirstTable = '<tr>';
+            $.each(response, function (key, value) {
+                upgradedFirstTable += '<td>' + value + '</td>';
+                upgradedFirstTable += '</tr>'
+                $('#firstTable').html(upgradedFirstTable)
 
-            $.getJSON( 'http://localhost:8080/servletWeb/main' ,function(response) {
-                var tbl_body = "";
-                var odd_even = false;
-                $.each(response, function() {
-                    var tbl_row = "";
-                    $.each(this, function(k , v) {
-                        tbl_row += "<td>"+v+"</td>";
-                    });
-                    tbl_body += "<tr class=\""+( odd_even ? "odd" : "even")+"\">"+tbl_row+"</tr>";
-                    odd_even = !odd_even;
-                });
-                $("#firstTable").html(tbl_body);
             });
         }
     });
-
-
-    $('#array2').change(function () {
-        //Use $option (with the "$") to see that the variable is a jQuery object
-        var $option = $(this).find('option:selected');
-        var text = $option.text();//to get <option>Text</option> content
-        $.ajax({
-            url: 'http://localhost:8080/servletWeb/data',     // URL - сервлет
-            type: 'POST', // тип запроса
-            data: {                 // передаваемые сервлету данные
-                userName: text
-            },
-            success: function (response) {
-                console.log(response)
-                $('#ajaxUserServletResponse').text(response);
-            }
-        });
-    });
 });
 
+$('#array2').change(function () {
 
-
-$('#array3').change(function () {
-    //Use $option (with the "$") to see that the variable is a jQuery object
-    var $option = $(this).find('option:selected');
-    var text = $option.text();//to get <option>Text</option> content
+    var option = $(this).find('option:selected');
+    var text = option.text();
     $.ajax({
-        url: 'http://localhost:8080/servletWeb/data',     // URL - сервлет
+        url: 'http://localhost:8080/servletWeb/data2',
         type: 'POST', // тип запроса
-        data: {                 // передаваемые сервлету данные
+        data: {
             userName: text
         },
         success: function (response) {
-            console.log(response)
-            $('#ajaxUserServletResponse').text(response);
+            var upgradedThirdTable = '<tr>';
+            $.each(response, function (key, value) {
+                upgradedThirdTable += '<td>' + value + '</td>';
+                upgradedThirdTable += '</tr>'
+                $('#secondTable').html(upgradedThirdTable)
+            });
         }
     });
 });
 
+$('#array3').change(function () {
 
-// var firstTableValue  = $('#array :selected').text();
-// console.log(firstTableValue);
+    var option = $(this).find('option:selected');
+    var text = option.text();
+    $.ajax({
+        url: 'http://localhost:8080/servletWeb/data3',
+        type: 'POST', // тип запроса
+        data: {
+            userName: text
+        },
+        success: function (response) {
+            document.querySelectorAll('[id="image"]')[0].src = 'data:image/png;base64, '+response["0"];
+            $('image').each(function(){$(this).css('width','400px')});
+        }
+    });
+});
+var textArea = "";
+$('#submitAllForms').click(function (e) {
+    e.preventDefault();
+    var option = $('#array').find('option:selected');
+    var firstTableValue = option.text();
+    var option2 = $('#array2').find('option:selected');
+    var secondTableValue = option2.text();
+    var option3 = $('#array3').find('option:selected');
+    var thirdTableValue = option3.text();
+
+    var buttonsParam = $('input[name="radio"]:checked').val();
+
+    if(buttonsParam != null) {
+        $.ajax({
+            url: 'http://localhost:8080/servletWeb/fin',
+            type: 'POST', // тип запроса
+            data: {
+                firstTableV: firstTableValue,
+                secondTableV: secondTableValue, // переменная со значением из поля с классом email
+                thirdTableV: thirdTableValue,
+                radioButtonsV: buttonsParam
+            },
+            success: function (response) {
+                textArea += response;
+                $("#textArea").val(textArea)
+            }
+        });
+    }
+    else {
+        alert("Выбери радиобаттон")
+    }
+});
 
 
-//
-// // вызов функции по завершению загрузки страницы
-// $(document).ready(function() {
-//     // вызов функции после потери полем 'userName' фокуса
-//     $('#firstSelectTable').onchange(function() {
-//         var targetValue; // переменная, куда при изменении выбора списка уйдет его value
-//         var sel = document.getElementById("firstSelectTable");
-//         targetValue = sel.value;
-//         $.ajax({
-//             url : 'jQueryServlet',     // URL - сервлет
-//             data : {                 // передаваемые сервлету данные
-//                 userName : $(targetValue)
-//             },
-//             success : function(response) {
-//                 console.log(response)
-//                 $('#ajaxUserServletResponse').text(response);
-//             }
-//         });
-//     });
-// });
+
+

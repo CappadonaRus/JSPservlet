@@ -15,11 +15,38 @@
 
     <servlet>
         <servlet-name>jQueryServlet</servlet-name>
-        <servlet-class>web.jQueryServlet</servlet-class>
+        <servlet-class>web.jQueryFirstTable</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>jQueryServlet</servlet-name>
         <url-pattern>/data</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>jQuerySecondTable</servlet-name>
+        <servlet-class>web.jQuerySecondTable</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>jQuerySecondTable</servlet-name>
+        <url-pattern>/data2</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>jQueryThirdTable</servlet-name>
+        <servlet-class>web.jQueryThirdTable</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>jQueryThirdTable</servlet-name>
+        <url-pattern>/data3</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>FinalDataServlet</servlet-name>
+        <servlet-class>web.FinalDataServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FinalDataServlet</servlet-name>
+        <url-pattern>/fin</url-pattern>
     </servlet-mapping>
 
 </web-app>

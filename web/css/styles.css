@@ -24,11 +24,28 @@
     left: 850px;
     position: absolute;
 }
+.img{
+    position: absolute;
+    top: 380px;
+}
 .textarea{
     height: 200px;
     width: 200px;
     display: inline-block;
     top: 350px;
     left: 650px;
-    position: relative;
+    position: absolute;
 }
+.submitButton{
+    position: absolute;
+    display: inline-block;
+    top: 600px;
+    left: 900px;
+}
+
+
+
+
+
+
+
